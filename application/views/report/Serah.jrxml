@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9cb0e36-bfcb-45f6-b72f-08c062f8fabd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="298"/>
+	<parameter name="a" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT msl.*,usr.nama admin,ins.nm_ins,st.nm_status
+					FROM tb_masalah msl
+					JOIN tb_user usr ON usr.id=msl.penerima
+					JOIN tb_instansi ins ON ins.id_ins=msl.id_ins
+					JOIN tb_status st ON st.id_status=msl.id_status
+					WHERE msl.id_masalah= $P{a}
+					ORDER BY tgl_lapor DESC]]>
+	</queryString>
+	<field name="id_masalah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_lapor" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_ins" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_pelapor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_status" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_fix" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="penerima" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="admin" class="java.lang.String"/>
+	<field name="nm_ins" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nm_status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement x="98" y="4" width="457" height="24" uuid="5643552c-f728-45a0-8725-955a81f51b09"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PEMERINTAH KOTA KEDIRI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="27" width="457" height="24" uuid="44d79ece-869c-4105-a4bc-8a7b50233e02"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEKRETARIAT  DAERAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="50" width="457" height="24" uuid="c802d47a-4029-4c53-9de6-bd4edf858f57"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAGIAN  PENGELOLAAN DATA ELEKTRONIK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="74" width="457" height="24" uuid="dd94a7e8-bc82-489b-9b1a-2fee0f082d7b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jalan Jend. Basuki Rakhmad No. 15 Kediri 64123 Jawa TimurTelp. (0354) 682955]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="99" width="555" height="1" uuid="caf4f721-7180-4e9d-93fe-f4f90fa26a0c"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="99" width="555" height="24" uuid="28d88228-12ae-4688-a7a2-ba8ea43cae0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANDA TERIMA PEKERJAAN]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="98" height="98" uuid="a9b55295-26a2-4616-8c81-142c60465e78"/>
+				<imageExpression><![CDATA["C:\\xampp\\htdocs\\ganet\\print\\report\\pemkot.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="0" y="205" width="555" height="20" uuid="242e6098-e93b-4de3-ab2e-e233028c6956"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="225" width="555" height="20" uuid="075101d9-5d61-4d36-8084-a7884044c77e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="244" width="555" height="20" uuid="c92a8a0e-88aa-49fd-b83f-7106b3aa02ae"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="264" width="555" height="20" uuid="04618530-de3f-45d1-bbb7-59864da64265"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="284" width="555" height="20" uuid="79e0f759-2743-46ca-9c2f-0457df75c60f"/>
+			</rectangle>
+			<line>
+				<reportElement x="45" y="205" width="1" height="99" uuid="a63db633-5ae3-464d-96ef-b5d26604d850"/>
+			</line>
+			<line>
+				<reportElement x="449" y="205" width="1" height="99" uuid="65280563-742b-41ed-aa1f-db6178e8641d"/>
+			</line>
+			<staticText>
+				<reportElement x="46" y="205" width="403" height="20" uuid="68b79b34-4f95-4a60-a974-9e0c74f91348"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[URAIAN PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="205" width="105" height="20" uuid="5bedbada-2ac1-4f93-ac32-cdf0439e28bd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="205" width="45" height="20" uuid="0ab9f656-588b-4027-9ded-33775e8ff464"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="314" width="197" height="20" uuid="b11cd50c-a3a0-44ec-b296-e2aced34f023"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[PENERIMA PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="314" width="203" height="20" uuid="927842aa-d8ae-4493-96dd-4e372a97af6c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[PELAKSANA PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="122" width="555" height="20" uuid="812ef19d-ab9d-4e86-aa90-ed207c6915e2"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Kediri, .......................................... 2016]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="141" width="555" height="20" uuid="49bfccec-b9f2-4eaf-9c76-ff7e436768f3"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Lokasi Perbaikan :
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="402" width="555" height="1" uuid="ea4f84e1-3fc0-4e3e-9d58-a95cb8b2dc8e"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="0" y="612" width="555" height="20" uuid="81c93f6a-31f0-4a65-9b50-db32b46b16ed"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="450" y="612" width="105" height="20" uuid="9d23ff76-892d-4522-90ab-015117f728a5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="721" width="203" height="20" uuid="65807a7c-a2ad-4f95-8f20-ff309fa31171"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[PELAKSANA PEKERJAAN]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="407" width="98" height="98" uuid="37e918ba-6595-485e-b413-9867b30a0f5a"/>
+				<imageExpression><![CDATA["C:\\xampp\\htdocs\\ganet\\print\\report\\pemkot.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="612" width="45" height="20" uuid="dc7fe011-a83b-4e46-830c-d3ca8b34c243"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="481" width="457" height="24" uuid="b5e3028b-954a-4106-9901-a23d704c6809"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jalan Jend. Basuki Rakhmad No. 15 Kediri 64123 Jawa TimurTelp. (0354) 682955]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="671" width="555" height="20" uuid="a93bad4f-91a3-4f81-b204-e42907ad18f4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="651" width="555" height="20" uuid="afafb598-8ac4-4015-aaa5-7a45e4b26c6b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="691" width="555" height="20" uuid="d6d777a3-f227-4a96-9145-dc0f63c10090"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="46" y="612" width="403" height="20" uuid="c6612563-cd81-4a36-9ca3-edbba5702689"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[URAIAN PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="530" width="555" height="20" uuid="02d2d412-4c5e-4ad1-a032-47d16f1906f1"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Kediri, .......................................... 2016]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="457" width="457" height="24" uuid="9c5ecb6a-e45c-42b3-907f-ae622f3e7ebd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAGIAN  PENGELOLAAN DATA ELEKTRONIK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="506" width="555" height="24" uuid="8dd98df2-f6ca-49c2-9ec8-02cfbdc2afea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANDA TERIMA PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="721" width="197" height="20" uuid="865cf7d7-d221-459b-b8fd-fa2d24e82547"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[PENERIMA PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="434" width="457" height="24" uuid="5f075f64-a386-4b8c-b687-e82d3161b7bd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEKRETARIAT  DAERAH]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="632" width="555" height="20" uuid="0fb095b6-c41f-46ba-baa7-ee90354c71bf"/>
+			</rectangle>
+			<line>
+				<reportElement x="45" y="612" width="1" height="99" uuid="74019d8a-8a75-46cf-a379-280c912440ff"/>
+			</line>
+			<line>
+				<reportElement x="0" y="506" width="555" height="1" uuid="aca876f3-9610-4785-98bb-e62f458770e5"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="449" y="612" width="1" height="99" uuid="52021e47-a968-4f89-98a5-3be2b60fa568"/>
+			</line>
+			<staticText>
+				<reportElement x="98" y="411" width="457" height="24" uuid="9c0196f8-dcb4-40d1-8b74-89e20d3b4524"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PEMERINTAH KOTA KEDIRI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="160" width="555" height="19" uuid="2abda93f-b9ba-47f9-a930-500e7a7d4789"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_ins}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="568" width="555" height="19" uuid="b014b774-b734-4fce-a1f3-32b457d0a015"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_ins}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="549" width="555" height="20" uuid="467cfd27-4307-4dbc-997b-946edb4e909e"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Lokasi Perbaikan :
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="778" width="203" height="20" uuid="94ad0cbc-0790-450e-a215-2138611fcc0b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[(........................................................)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="778" width="197" height="20" uuid="eed41ff0-e365-4660-a288-8b6343c2fa4e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[(......................................................)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="371" width="197" height="20" uuid="6b902d6a-4afa-47cd-ad0b-ed75b8a2e23e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[(......................................................)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="371" width="203" height="20" uuid="6bfda21c-e297-4cf1-8731-959a1225c7a6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[(.......................................................)]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

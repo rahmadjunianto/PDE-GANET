@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="56" bottomMargin="20" uuid="c9cb0e36-bfcb-45f6-b72f-08c062f8fabd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="a" class="java.lang.String"/>
+	<parameter name="nama" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nip" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p5" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT ins.nm_ins,CONCAT (DAY(NOW()),' ',
+	CASE (MONTH(NOW())) WHEN '01' THEN "Januari"
+	WHEN '02' THEN "Februari"
+	WHEN '03' THEN "Maret"
+	WHEN '04' THEN "April"
+	WHEN '05' THEN "Mei"
+	WHEN '06' THEN "Juni"
+	WHEN '07' THEN "Juli"
+	WHEN '08' THEN "Agustus"
+	WHEN '09' THEN "September"
+	WHEN '10' THEN "Oktober"
+	WHEN '11' THEN "November"
+	WHEN '12' THEN "Desember"
+	END
+	," ",
+	(YEAR(NOW()))) AS buat,
+	CASE
+	WHEN DATE_FORMAT(NOW(),'%w') = 0 THEN 'Minggu'
+	WHEN DATE_FORMAT(NOW(),'%w') = 1 THEN 'Senin'
+	WHEN DATE_FORMAT(NOW(),'%w') = 2 THEN 'Selasa'
+	WHEN DATE_FORMAT(NOW(),'%w') = 3 THEN 'Rabu'
+	WHEN DATE_FORMAT(NOW(),'%w') = 4 THEN 'Kamis'
+	WHEN DATE_FORMAT(NOW(),'%w') = 5 THEN "Jum'at"
+	WHEN DATE_FORMAT(NOW(),'%w') = 6 THEN 'Sabtu'
+	END AS hari,
+	CONCAT(HOUR(NOW()),'.00 - Selesai') AS pukul
+	FROM tb_masalah msl
+					JOIN tb_instansi ins ON ins.id_ins=msl.id_ins
+					WHERE msl.id_masalah= $P{a}]]>
+	</queryString>
+	<field name="nm_ins" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="buat" class="java.lang.String"/>
+	<field name="hari" class="java.lang.String"/>
+	<field name="pukul" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="730">
+			<staticText>
+				<reportElement x="100" y="4" width="457" height="24" uuid="5643552c-f728-45a0-8725-955a81f51b09"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PEMERINTAH KOTA KEDIRI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="27" width="457" height="24" uuid="44d79ece-869c-4105-a4bc-8a7b50233e02"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEKRETARIAT  DAERAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="50" width="457" height="24" uuid="c802d47a-4029-4c53-9de6-bd4edf858f57"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAGIAN  PENGELOLAAN DATA ELEKTRONIK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="74" width="457" height="24" uuid="dd94a7e8-bc82-489b-9b1a-2fee0f082d7b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jalan Jend. Basuki Rakhmad No. 15 Kediri 64123 Jawa Timur Telp. (0354) 682955]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="99" width="555" height="1" uuid="caf4f721-7180-4e9d-93fe-f4f90fa26a0c"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="102" width="555" height="24" uuid="28d88228-12ae-4688-a7a2-ba8ea43cae0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Segoe UI" size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SURAT PERINTAH TUGAS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="0" width="98" height="98" uuid="a9b55295-26a2-4616-8c81-142c60465e78"/>
+				<imageExpression><![CDATA["C:\\xampp\\htdocs\\ganet\\print\\report\\pemkot.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="120" width="557" height="18" uuid="812ef19d-ab9d-4e86-aa90-ed207c6915e2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Nomor : 800/          /419.13/2016]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="167" width="89" height="20" uuid="54b2c7d1-355c-4bba-98a0-39f34e16b230"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Dasar           :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="168" width="468" height="20" uuid="69467424-61ed-4323-81b3-0dc68495eaea"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[1. Dokumen Pelaksanaan Anggaran Bagian Pengelolaan Data Eletronik Sekretariat ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="223" width="467" height="19" uuid="58766a30-4079-4ad9-b725-6002613d3091"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[2. Perintah Langsung Kepala Bagian Pemgelolan Data Elektronik Sekretariat Daerah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="264" width="557" height="24" uuid="105d9679-ae92-4b07-922b-f3ceec7283ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Segoe UI" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[M E M E R I N T A H K A N]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="312" width="87" height="20" uuid="71b9e880-2332-4d7a-b88a-6d29a6c8d3e4"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Kepada         :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="424" width="89" height="20" uuid="4b49d707-fdde-4f32-8fa1-4429f2150aee"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Untuk            :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="426" width="468" height="20" uuid="2db78ad1-bae3-43db-9822-9b3228d401a6"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Melakukan Perbaikan Jaringan Komputer di SKPD dan Sekolah Pemerintah Kota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="463" width="85" height="20" uuid="713503be-e42f-497b-91b2-533b8527598c"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Hari               :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="483" width="85" height="20" uuid="bb3ec066-48f7-404b-887f-18b3750252c2"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal         :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="502" width="85" height="20" uuid="d60931ac-8a04-4d3b-983c-153b5e62e60c"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Pukul             :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="521" width="85" height="20" uuid="991b1c0c-1814-472a-bbce-86183b3d770a"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Tempat          :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="315" y="671" width="241" height="20" uuid="c4eff937-c327-402b-946e-7b6daa09b503"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="688" width="239" height="20" uuid="7aa9170e-9638-4998-a6e2-af73729a3738"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NIP. "+$P{nip}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="187" width="453" height="19" uuid="ed19e2a2-7fe1-482c-9277-0a2326d29838"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Daerah Kota Kediri Kegiatan Pembinaan dan Pengembangan Sumber Daya ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="205" width="453" height="19" uuid="642e4548-7dcc-46e1-9177-07b5c6eb73c3"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Komunikasi dan Informasi  Tahun Anggaran 2016.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="85" y="445" width="469" height="19" uuid="7314c548-bc1d-4bf4-b6dc-eda477f96979"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Tahun 2016 , Yang dilaksanakan pada :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="313" width="201" height="20" uuid="bbc53f7b-5c68-484e-b2fb-849bade1631f"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="332" width="201" height="20" uuid="d3c40619-12d0-469b-9634-0a529fb57822"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="352" width="201" height="20" uuid="ec7bc0a6-217b-40fd-80db-ef620e7494ee"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="370" width="199" height="20" uuid="d26250b2-1041-44b6-986c-0ff05a5602d7"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="389" width="201" height="20" uuid="c6e5438a-8749-41b4-8bd7-0c33c530db8a"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="522" width="270" height="20" uuid="c9c8729e-eb52-4654-983e-27a184f0b8d0"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_ins}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="484" width="270" height="20" uuid="1339d284-24b5-461e-9bfb-f589f4dcc0a7"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{buat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="465" width="270" height="20" uuid="8c365586-9df7-4767-bbe9-c3dbaf87660d"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hari}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="503" width="270" height="20" uuid="2e2f0261-9a96-4958-83fa-d1cb0f966013"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pukul}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="572" width="239" height="20" uuid="44f7422e-98c9-47d2-83fb-6b93a543d6da"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Kediri, "+$F{buat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="101" y="241" width="454" height="19" uuid="f7ca1703-a999-43ed-9750-3d1e0972835d"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Kota Kediri.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="101" width="555" height="1" uuid="d60cd9b2-2d77-4463-92bb-5fad476e4583"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="2" y="99" width="555" height="1" uuid="d531004f-b641-438a-bd08-82eea84952da"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="315" y="592" width="237" height="19" uuid="3a2f6653-3d25-4d81-a947-9d9c78f33663"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KEPALA BAGIAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="611" width="240" height="19" uuid="9f5e2269-b84d-477f-976e-d2722e3ae66f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PENGELOLAAN DATA ELEKTRONIK]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>
